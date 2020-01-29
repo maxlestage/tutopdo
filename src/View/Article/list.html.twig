@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Liste Articles</h1>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Titre</td>
+                    <td>Description</td>
+                    <td>Auteur</td>
+                    <td>Date</td>
+                    <td>Image</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.content }}</td>
+                        <td>{{ article.author }}</td>
+                        <td>{{ article.date }}</td>
+                        <td>
+                            <img width="100px" src="{{ article.image }}">
+                        </td>
+                        <td>
+                            <a href="/article/update/{{ article.id }}">
+                                <button>Modifier</button>
+                            </a>
+                            <a href="/article/delete/{{ article.id }}">
+                                <button>Supprimer</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

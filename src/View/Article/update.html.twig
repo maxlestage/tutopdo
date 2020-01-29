@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Modification Article {{ article.title }}</h1>
+    <div>
+        <form method="post" action="/article/update/{{ article.id }}">
+            <input type="hidden" value="{{ article.id }}" name="id">
+            <div>
+                <label for="title">Titre</label>
+                <input type="text" name="title" value="{{ article.title }}">
+            </div>
+            <div>
+                <label for="content">Contenu</label>
+                <textarea name="content">{{ article.content }}</textarea>
+            </div>
+            <div>
+                <label for="author">Auteur</label>
+                <input type="text" name="author" value="{{ article.author }}">
+            </div>
+            <div>
+                <label for="date">Date</label>
+                <input type="date" name="date" value="{{ article.date }}">
+            </div>
+            <div>
+                <label for="image">Image</label>
+                <input type="text" name="image" value="{{ article.image }}">
+            </div>
+            <input type="submit">
+        </form>
+        <div>
+            <a href="/article/list"><button>Retour liste</button></a>
+        </div>
+    </div>
+{% endblock %}
